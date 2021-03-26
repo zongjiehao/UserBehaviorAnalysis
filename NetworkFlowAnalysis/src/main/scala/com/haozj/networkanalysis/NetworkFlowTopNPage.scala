@@ -44,6 +44,10 @@ object NetworkFlowTopNPage {
 
 		//开窗聚合
 		val aggStream = dataStream
+				.filter(data=>{
+					val pattern = "(css|js|ico)$".r
+					(pattern findFirstIn data.url).isEmpty
+				})
 				.keyBy(_.url)
 				.timeWindow(Time.minutes(10), Time.seconds(5))
 				.aggregate(new PageCountAgg(), new PageCountWindowResult())

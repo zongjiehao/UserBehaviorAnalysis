@@ -17,6 +17,5 @@ object Test {
 		val simpleDate3 = new SimpleDateFormat("dd/MM/yyyy:HH:mm:ss")
 		println("格式化结果3",simpleDate3.parse("20/05/2015:17:05:07"))
 		println("格式化结果33",simpleDate3.parse("20/05/2015:17:05:07").getTime)
-
 	}
 }
